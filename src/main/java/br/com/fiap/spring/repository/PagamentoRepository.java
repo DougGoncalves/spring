@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface PagamentoRepository extends JpaRepository<Pagamento, Integer> {
-    List<Pagamento> findByStudentIdAndUpdateDateBetween(String idEstudante, LocalDateTime startLocalDateTime, LocalDateTime endDate);
+    // List<Pagamento> findByStudentIdAndUpdateDateBetween(String idEstudante, LocalDateTime startLocalDateTime, LocalDateTime endDate);
 }

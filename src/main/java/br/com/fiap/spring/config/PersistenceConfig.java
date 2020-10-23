@@ -50,7 +50,7 @@ public class PersistenceConfig {
                 .build();
     }
 
-    @Bean(name = "transactionManager")
+    @Bean(name = "platformTransactionManager")
     public PlatformTransactionManager txManager() {
         return new JpaTransactionManager(getEntityManagerFactoryBean().getObject());
     }
