@@ -17,13 +17,13 @@ public class SpringBatchConfig extends DefaultBatchConfigurer {
     @Qualifier("H2DataSource")
     private DataSource dataSource;
 
-    @Bean("batchJobLauncher")
+    @Bean("jobLauncher")
     @Override
     protected JobLauncher createJobLauncher() throws Exception {
         setDataSource(dataSource);
-        SimpleJobLauncher batchJobLauncher = new SimpleJobLauncher();
-        batchJobLauncher.setJobRepository(getJobRepository());
-        batchJobLauncher.afterPropertiesSet();
-        return batchJobLauncher;
+        SimpleJobLauncher jobLauncher = new SimpleJobLauncher();
+        jobLauncher.setJobRepository(getJobRepository());
+        jobLauncher.afterPropertiesSet();
+        return jobLauncher;
     }
 }

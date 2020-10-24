@@ -53,8 +53,8 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 
     private ApiInfo metaData() {
         return new ApiInfoBuilder()
-                .title("Trabalho Spring")
-                .description("Gerenciamento do Cartão de Crédito Estudantil FIAP")
+                .title("Trabalho Spring - FIAP - 36SCJ")
+                .description("Gerenciamento do Cartão de Crédito FIAP")
                 .version("1.0.0")
                 .build();
     }

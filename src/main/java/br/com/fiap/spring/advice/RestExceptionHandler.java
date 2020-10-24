@@ -1,8 +1,8 @@
 package br.com.fiap.spring.advice;
 
-import br.com.fiap.spring.advice.exc.PreRegistrationFailedException;
-import br.com.fiap.spring.advice.exc.CartaoCreditoConflictException;
-import br.com.fiap.spring.advice.exc.CartaoCreditoNotFoundException;
+import br.com.fiap.spring.advice.exceptions.PreRegistrationFailedException;
+import br.com.fiap.spring.advice.exceptions.StudentCreditCardConflictException;
+import br.com.fiap.spring.advice.exceptions.StudentCreditCardNotFoundException;
 import com.google.gson.JsonObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -42,7 +42,7 @@ public class RestExceptionHandler {
     }
 
     @ExceptionHandler({
-            CartaoCreditoConflictException.class
+            StudentCreditCardConflictException.class
     })
     public final ResponseEntity<?> handleConflictExceptions(RuntimeException ex) {
         return ResponseEntity
@@ -52,7 +52,7 @@ public class RestExceptionHandler {
     }
 
     @ExceptionHandler({
-            CartaoCreditoNotFoundException.class
+            StudentCreditCardNotFoundException.class
     })
     public final ResponseEntity<?> handlePreConditionFailedExceptions(RuntimeException ex) {
         return ResponseEntity
