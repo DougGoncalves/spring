@@ -2,7 +2,7 @@ package br.com.fiap.spring.batch;
 
 import org.springframework.batch.core.ChunkListener;
 import org.springframework.batch.core.scope.context.ChunkContext;
- 
+
 public class ItemCountListener implements ChunkListener {
      
     @Override

@@ -1,7 +1,6 @@
 package br.com.fiap.spring.annotations;
 
 import io.micrometer.core.instrument.util.StringUtils;
-
 import javax.validation.Constraint;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -11,7 +10,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-
 public class CardValidator implements ConstraintValidator<CardValidator.CardValidation, String> {
 
     public static final int CREDIT_CARD_WITH_FIFTEENTH_CHECK_DIGIT = 15;
@@ -31,7 +29,6 @@ public class CardValidator implements ConstraintValidator<CardValidator.CardVali
         Class<? extends Payload>[] payload() default {};
 
         boolean required() default true;
-
     }
 
     private boolean required = true;

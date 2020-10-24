@@ -10,9 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
 import org.springframework.security.access.AccessDeniedException;
-
 @ControllerAdvice
 public class RestExceptionHandler {
 
@@ -75,7 +73,7 @@ public class RestExceptionHandler {
     public final ResponseEntity<?> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
         ResponseError responseError = new ResponseError(
                 HttpStatus.BAD_REQUEST,
-                "Dados inválidos na requisição. Por favor verifique os dados informados e tente novamente.");
+                "Requisição inválida. Por favor verifique os dados informados e tente novamente.");
 
         return ResponseEntity
                 .status(responseError.getStatus())

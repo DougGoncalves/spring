@@ -1,5 +1,4 @@
 package br.com.fiap.spring.dto;
-
 public class PaymentResponse {
 
     private Integer id;

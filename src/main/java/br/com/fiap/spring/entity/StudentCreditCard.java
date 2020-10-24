@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-
 @Entity(name = "STUDENT_CREDIT_CARD")
 public class StudentCreditCard {
 
@@ -31,8 +30,7 @@ public class StudentCreditCard {
     public StudentCreditCard() {
     }
 
-    public StudentCreditCard(String registration, String name, String course, String cardNumber,
-                   String expirationDate, Integer verificationCode) {
+    public StudentCreditCard(String registration, String name, String course, String cardNumber, String expirationDate, Integer verificationCode) {
         this.registration = registration;
         this.name = name;
         this.course = course;
@@ -41,8 +39,7 @@ public class StudentCreditCard {
         this.verificationCode = verificationCode;
     }
 
-    public StudentCreditCard(Integer id, String registration, String name, String course, String cardNumber,
-                   String expirationDate, Integer verificationCode) {
+    public StudentCreditCard(Integer id, String registration, String name, String course, String cardNumber, String expirationDate, Integer verificationCode) {
         this.id = id;
         this.registration = registration;
         this.name = name;

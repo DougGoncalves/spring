@@ -4,7 +4,6 @@ import br.com.fiap.spring.enums.PaymentStatus;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -14,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-
 @Entity(name = "PAYMENT")
 @EntityListeners(AuditingEntityListener.class)
 public class Payment {
@@ -55,8 +53,7 @@ public class Payment {
         this.status = status;
     }
 
-    public Payment(Integer id, Integer orderId, BigDecimal totalOrderAmount, String studentId, PaymentStatus status,
-                   LocalDateTime creationDate, LocalDateTime updateDate) {
+    public Payment(Integer id, Integer orderId, BigDecimal totalOrderAmount, String studentId, PaymentStatus status, LocalDateTime creationDate, LocalDateTime updateDate) {
         this.id = id;
         this.orderId = orderId;
         this.totalOrderAmount = totalOrderAmount;

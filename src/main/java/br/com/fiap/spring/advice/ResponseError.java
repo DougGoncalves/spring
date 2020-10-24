@@ -2,7 +2,6 @@ package br.com.fiap.spring.advice;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.http.HttpStatus;
-
 public class ResponseError extends RuntimeException {
 
     @JsonIgnore

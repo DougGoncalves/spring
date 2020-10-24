@@ -23,12 +23,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,15 +49,13 @@ public class StudentCardController {
         this.studentCreditCardService = studentCreditCardService;
     };
 
-    @ApiOperation(value = "Consultar todos os estudantes e os dados de seu cartão")
+    @ApiOperation(value = "Consultar todos os estudantes e seus dados de cartão")
     @ApiResponses(value = {
-            @ApiResponse(code = HTTP_STATUS_OK, message = "Lista de estudantes com os respectivos dados de seu cartão",
-                    response = StudentCreditCardResponse[].class)
+         @ApiResponse(code = HTTP_STATUS_OK, message = "Lista de estudantes com os respectivos dados de seu cartão", response = StudentCreditCardResponse[].class)
     })
     @GetMapping(produces = "application/json", headers = "Accept=application/json" )
-    public ResponseEntity<StudentCreditCardResponse> getAllStudentsCreditCard(@RequestParam("page") int page,
-                                                                              @RequestParam("size") int size){
-        LOGGER.info("Getting students ... ");
+    public ResponseEntity<StudentCreditCardResponse> getAllStudentsCreditCard(@RequestParam("page") int page, @RequestParam("size") int size){
+        LOGGER.info("Buscando estudantes ... ");
 
         List<StudentCreditCardItemResponse> studentCreditCardItemResponse = new ArrayList<>();
         Page<StudentCreditCard> students = studentCreditCardService.getAllStudentsCreditCard(handleRequest(page, size));
@@ -72,18 +68,17 @@ public class StudentCardController {
 
     @ApiOperation(value = "Consultar um estudante específico com os dados do seu cartão")
     @ApiResponses(value = {
-            @ApiResponse(code = HTTP_STATUS_OK, message = "Estudante e os respectivos dados de seu cartão",
-                    response = StudentCreditCardResponse.class)
+        @ApiResponse(code = HTTP_STATUS_OK, message = "Estudante e os respectivos dados de seu cartão", response = StudentCreditCardResponse.class)
     })
     @GetMapping(value = "/{id}", produces = "application/json", headers = "Accept=application/json" )
     public ResponseEntity<StudentCreditCardItemResponse> getStudentCreditCardById(@PathVariable("id") Integer id){
-        LOGGER.info("Getting a specific student ... ");
+        LOGGER.info("Buscando um estudante ... ");
         return ResponseEntity.ok(toStudentResponse(studentCreditCardService.getStudentCreditCardById(id)));
     }
 
     @ApiOperation(value = "Excluir um estudante e os e dados do seu cartão")
     @ApiResponses(value = {
-            @ApiResponse(code = HTTP_STATUS_NO_CONTENT, message = "Dados do cartão do estudante excluído")
+        @ApiResponse(code = HTTP_STATUS_NO_CONTENT, message = "Dados do cartão do estudante excluído")
     })
     @DeleteMapping(value = "/{id}", produces = "application/json", headers = "Accept=application/json" )
     public ResponseEntity<?> deleteStudentCreditCard(@PathVariable("id") Integer id){
@@ -94,12 +89,12 @@ public class StudentCardController {
 
     @ApiOperation(value = "Alterar informações de um estudante ou dos dados de seu cartão")
     @ApiResponses(value = {
-            @ApiResponse(code = HTTP_STATUS_NO_CONTENT, message = "Dados do cartão do estudante atualizados")
+        @ApiResponse(code = HTTP_STATUS_NO_CONTENT, message = "Dados do cartão do estudante atualizados")
     })
     @PutMapping(value = "/{id}", produces = "application/json", headers = "Accept=application/json" )
     public ResponseEntity<?> updateStudentCreditCard(@PathVariable("id") Integer id,
                                                      @Valid @RequestBody StudentCreditCardRequest studentCreditCardRequest){
-        LOGGER.info("Updating a specific student ... ");
+        LOGGER.info("Atualizando dados estudante ... ");
         studentCreditCardService.updateStudentCreditCard(id, studentCreditCardRequest);
 
         return ResponseEntity.noContent().build();
@@ -107,11 +102,11 @@ public class StudentCardController {
 
     @ApiOperation(value = "Associar um estudante a dados de seu cartão")
     @ApiResponses(value = {
-            @ApiResponse(code = HTTP_STATUS_CREATED, message = "Associação realizada")
+        @ApiResponse(code = HTTP_STATUS_CREATED, message = "Associação realizada")
     })
     @PostMapping(produces = "application/json", headers = "Accept=application/json" )
     public ResponseEntity<StudentCreditCardItemResponse> createStudentCreditCard(@Valid @RequestBody StudentCreditCardRequest studentCreditCardRequest){
-        LOGGER.info("Creating the association between student and your credit card ... ");
+        LOGGER.info("Criando associação entre estudante e cartão de crédito ... ");
 
         StudentCreditCard student = studentCreditCardService.createStudentCreditCard(studentCreditCardRequest);
 
@@ -123,7 +118,7 @@ public class StudentCardController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @ApiOperation(value = "Processar o pré-cadastro")
     @ApiResponses(value = {
-            @ApiResponse(code = HTTP_STATUS_OK, message = "Pré-cadastro processado")
+        @ApiResponse(code = HTTP_STATUS_OK, message = "Pré-cadastro processado")
     })
     @PostMapping(value = "/pre-registration", produces = "application/json", headers = "Accept=application/json" )
     public ResponseEntity<Object> processPreRegistation(){

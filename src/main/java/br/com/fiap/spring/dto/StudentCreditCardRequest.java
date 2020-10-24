@@ -3,7 +3,6 @@ package br.com.fiap.spring.dto;
 import static br.com.fiap.spring.annotations.CardValidator.CardValidation;
 
 import javax.validation.constraints.NotNull;
-
 public class StudentCreditCardRequest {
 
     @NotNull
@@ -28,8 +27,7 @@ public class StudentCreditCardRequest {
     public StudentCreditCardRequest() {
     }
 
-    public StudentCreditCardRequest(String registration, String name, String course, String cardNumber,
-                                    String expirationDate, Integer verificationCode) {
+    public StudentCreditCardRequest(String registration, String name, String course, String cardNumber, String expirationDate, Integer verificationCode) {
         this.registration = registration;
         this.name = name;
         this.course = course;

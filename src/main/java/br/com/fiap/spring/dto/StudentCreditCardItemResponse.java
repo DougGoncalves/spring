@@ -1,5 +1,4 @@
 package br.com.fiap.spring.dto;
-
 public class StudentCreditCardItemResponse {
 
     private Integer id;
@@ -10,8 +9,7 @@ public class StudentCreditCardItemResponse {
     private String expirationDate;
     private Integer verificationCode;
 
-    public StudentCreditCardItemResponse(Integer id, String registration, String name, String course, String cardNumber,
-                                         String expirationDate, Integer verificationCode) {
+    public StudentCreditCardItemResponse(Integer id, String registration, String name, String course, String cardNumber, String expirationDate, Integer verificationCode) {
         this.id = id;
         this.registration = registration;
         this.name = name;

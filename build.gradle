@@ -26,7 +26,8 @@ dependencies {
 	implementation 'com.h2database:h2:1.4.197'
 
 	//SWAGGER
-	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
+  implementation 'io.springfox:springfox-swagger-ui:2.9.2'
 
 	//GSON
 	implementation 'com.google.code.gson:gson:2.8.6'
@@ -37,6 +38,7 @@ dependencies {
 	}
 	testImplementation 'org.springframework.batch:spring-batch-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation 'org.awaitility:awaitility:4.0.3'
 }
 
 test {

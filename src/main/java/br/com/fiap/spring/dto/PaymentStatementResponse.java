@@ -1,7 +1,6 @@
 package br.com.fiap.spring.dto;
 
 import java.math.BigDecimal;
-
 public class PaymentStatementResponse {
 
     private Integer id;

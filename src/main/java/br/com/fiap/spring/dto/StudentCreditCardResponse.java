@@ -9,8 +9,7 @@ public class StudentCreditCardResponse {
     private Integer totalPages;
     private List<StudentCreditCardItemResponse> studentsCreditCard;
 
-    public StudentCreditCardResponse(Boolean hasNext, Integer pageNumber, Integer totalPages,
-                                     List<StudentCreditCardItemResponse> studentsCreditCard) {
+    public StudentCreditCardResponse(Boolean hasNext, Integer pageNumber, Integer totalPages, List<StudentCreditCardItemResponse> studentsCreditCard) {
         this.hasNext = hasNext;
         this.pageNumber = pageNumber;
         this.totalPages = totalPages;

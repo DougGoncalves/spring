@@ -3,7 +3,6 @@ package br.com.fiap.spring.dto;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
-
 public class FilterReport implements Serializable {
 
     private static final long serialVersionUID = 3886925297648881663L;

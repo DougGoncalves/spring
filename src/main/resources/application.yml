@@ -1,17 +1,17 @@
 spring:
   h2:
     console:
-      enable: true
+      enabled: true
       path: /db
   batch:
     job:
-      enabled: FALSE
+      enabled: false
   main:
     allow-bean-definition-overriding: true
 
 database:
-  driverClassname: org.h2.Driver
-  url: jdbc:h2:~/trabalhospring;DB_CLOSE_ON_EXIT=FALSE
+  driverClassName: org.h2.Driver
+  url: jdbc:h2:~/trabalhospring/DB_CLOSE_ON_EXIT=FALSE
   username: fiap
   password: fiap
 
@@ -19,7 +19,7 @@ hibernate:
   dialect: org.hibernate.dialect.H2Dialect
   show_sql: true
   format_sql: true
-  hbm2ddl.auto: validate  
+  hbm2ddl.auto: validate
 
 file:
   input: classpath:lista_alunos1.txt

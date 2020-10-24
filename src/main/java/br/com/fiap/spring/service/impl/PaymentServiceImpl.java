@@ -11,12 +11,10 @@ import br.com.fiap.spring.service.PaymentService;
 import br.com.fiap.spring.service.CreditCardValidateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
@@ -55,13 +53,11 @@ public class PaymentServiceImpl implements PaymentService {
 	}
 
 	@Override
-	public List<Payment> getStudentCreditCardPaymentStatement(LocalDateTime startDate, LocalDateTime endDate,
-															  String studentRegistration) {
+	public List<Payment> getStudentCreditCardPaymentStatement(LocalDateTime startDate, LocalDateTime endDate, String studentRegistration) {
 		return paymentRepository.findByStudentIdAndUpdateDateBetween(studentRegistration, startDate, endDate);
 	}
 
-	private PaymentStatus authorizePaymentForTransaction(String cardNumber, Integer verificationCode,
-														 BigDecimal totalOrderAmount){
+	private PaymentStatus authorizePaymentForTransaction(String cardNumber, Integer verificationCode, BigDecimal totalOrderAmount){
 
 		if (!creditCardValidateService.validateCreditCardInIssuer(cardNumber, verificationCode))
 			return PaymentStatus.ABORTED;

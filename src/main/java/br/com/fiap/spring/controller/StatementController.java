@@ -16,19 +16,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-
 import static br.com.fiap.spring.utils.DateUtils.isInvalidPeriod;
 import static br.com.fiap.spring.utils.DateUtils.toLocalDate;
 import static br.com.fiap.spring.utils.DateUtils.convertToDate;
 
 @RestController
 @RequestMapping("/spring/v1/credit-card/statement")
-@Api(value = "Gerenciamento de Extratos")
+@Api(value = "Extrato")
 public class StatementController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(StatementController.class);
@@ -42,19 +40,19 @@ public class StatementController {
         this.paymentService = paymentService;
     };
 
-    @ApiOperation(value = "Consultar extrato de pagamentos do estudante via cartão de crédito")
+    @ApiOperation(value = "Consultar extrato de pagamentos")
     @ApiResponses(value = {
-            @ApiResponse(code = HTTP_STATUS_OK, message = "Extrato de pagamentos")
+        @ApiResponse(code = HTTP_STATUS_OK, message = "Extrato de pagamentos")
     })
     @GetMapping(produces = "application/json", headers = "Accept=application/json" )
     public ResponseEntity<List<PaymentStatementResponse>> getStudentCreditCardPaymentStatement(FilterReport params){
-        LOGGER.info("Getting student credit card payment statement ... ");
+        LOGGER.info("Buscando extrato ... ");
 
         final LocalDateTime startDate = toLocalDate(params.getStartDate()).atStartOfDay();
         final LocalDateTime endDate = toLocalDate(params.getEndDate()).atTime(LocalTime.MAX);
 
         if (isInvalidPeriod(startDate, endDate)){
-            throw new ResponseError("O período informado é inválido. Por favor verifique os dias de início e término.");
+            throw new ResponseError("O período informado não é valido. Por favor verifique as datas");
         }
 
         List<Payment> payments = paymentService.getStudentCreditCardPaymentStatement(startDate,

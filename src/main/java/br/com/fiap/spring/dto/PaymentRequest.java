@@ -3,7 +3,6 @@ package br.com.fiap.spring.dto;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-
 public class PaymentRequest {
 
     @NotNull

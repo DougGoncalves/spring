@@ -21,7 +21,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/spring/v1/payment")
-@Api(value = "Gerenciamento de Transações/Pagamento")
+@Api(value = "Gerenciamento de Transações")
 public class PaymentController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PaymentController.class);
@@ -35,14 +35,14 @@ public class PaymentController {
         this.paymentService = paymentService;
     };
 
-    @ApiOperation(value = "Processar pagamento do estudante via cartão de crédito")
+    @ApiOperation(value = "Processar pagamentos via cartão de crédito")
     @ApiResponses(value = {
             @ApiResponse(code = HTTP_STATUS_OK, message = "Pagamento processado")
     })
     @PostMapping(produces = "application/json", headers = "Accept=application/json" )
     public ResponseEntity<PaymentResponse> processStudentCreditCardPayment(
             @Valid @RequestBody PaymentRequest paymentRequest){
-        LOGGER.info("Processing payment with student credit card ... ");
+        LOGGER.info("Procesando pagamento ... ");
 
         Payment payment = paymentService.processStudentCreditCardPayment(paymentRequest);
 
