@@ -6,11 +6,10 @@
    <a href="#tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#rotas">Rotas e Endpoints</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#swagger">Swagger</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-   <a href="#actuator">Actuator</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  </p>
 
    <p align="center">
-    <img alt="demo" src=".github/demo.gif" width="100%">
+    <img alt="demo" src="github/demopt1.gif" width="100%">
   </p>
 
 
@@ -26,48 +25,46 @@
  - Spring Boot - Subir a aplicação e carregar os contextos da aplicação
  - Spring Batch - Processamento do arquivo de cadastro dos alunos
  - Spring Data - Manipulação e gerenciamento do banco de dados
- - Spring Security - Autorização de rotas
-
-
-## Rotas e Endpoints
-
-- Consultar todos os estudantes e os dados de seu cartão
-```(GET -> /spring/v1/student/credit-card)```
-
-- Associar um estudante a dados de seu cartão
-```(POST -> /spring/v1/student/credit-card)```
-
-- Consultar um estudante específico com os dados do seu cartão
-```(GET -> /spring/v1/student/credit-card/{id})```
-
-- Alterar informações 
-```(PUT -> /spring/v1/student/credit-card/{id})```
-
-- Excluir dados
-```(DELETE -> /spring/v1/student/credit-card/{id})```
-
-- Processar um pagamento
-```(POST -> /spring/v1/payment)```
-
-- Consultar extrato do cartão de crédito
-```(GET -> /spring/v1/credit-card/statement)```
+ - Flyway - Inicialização da tabela e gerenciamento de versão do banco de dados
+ - Swagger - Interface grafica com todos os endpoints mapeados para utilização da aplicação
 
 ### Swagger 
-A aplicação pode ser testada a partir da interface gráfica do Swagger, basta acessar a url: http://localhost:8080/swagger-ui.html
+A aplicação pode ser testada a partir da interface gráfica do Swagger, basta acessar a url: http://localhost:8080/swagger-ui.html , por ele será possivel realizar todas as transações do projeto
 
  <p align="center">
-    <img alt="demo" src=".github/swagger.png" width="100%">
+    <img alt="demo" src="github/demopt2.gif" width="100%">
  </p>
 
-## Actuator
-Há uma dependência do Spring Boot Actuator na API, com isso a verificação de informações pode ser feitas pelas urls abaixo:
+## Instruções basicas
 
-- Verificar o funcionamento da aplicação - http://localhost:8080/actuator/health
-- Listar todas as informações disponibilizadas pelo Actuator - http://localhost:8080/actuator
-<p align="center">
-    <img alt="demo" src=".github/actuator.png" width="100%">
+1-Antes de iniciarmos , favor editar o arquivo application.yml no campo URL com um endereço valido para criação do banco de dados H2, indicador abaixo:
+
+ <p align="center">
+    <img alt="demo" src="github/datasource.PNG" width="100%">
  </p>
+ 
+2-Para iniciar o projeto Card, será necessário executar primeiro o Batch para criação da tabela e preenchimento inicial dos alunos.
+3-Exemplo de preenchimento para novo aluno:
+        {
+          "codigocurso": "123-12",
+          "id": 0,
+          "nome": "FIAP 36SCJ",
+          "rm": 123456
+        }
+4-Exemplo de preenchimento para uma nova transação:
+       {
+         "aluno": {
+           "codigoCurso": "string",
+           "id": 1317,      <--Id gerado na criação do aluno
+           "nome": "string",
+           "rm": 0
+         },
+         "autorizadora": "MASTERCARD",
+         "id": 0,
+         "valor": 1234.56
+       }
 
+5- Enjoy
 
  ---
 <h4 align="center">
